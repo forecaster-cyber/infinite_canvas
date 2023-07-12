@@ -161,7 +161,7 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
     return rect;
   }
 
-  bool isSelected(LocalKey key) => _selected.contains(key);
+  bool isSelected(LocalKey key) => false;
   bool isHovered(LocalKey key) => _hovered.contains(key);
 
   bool get hasSelection => _selected.isNotEmpty;
@@ -178,7 +178,7 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
     for (final child in nodes) {
       final rect = child.rect;
       if (rect.contains(offset)) {
-        selection.add(child.key);
+        //selection.add(child.key);
       }
     }
     if (selection.isNotEmpty) {
@@ -251,8 +251,8 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
     if (hover) {
       _hovered.add(key);
     } else {
-      _selected.add(key);
-      _cacheSelectedOrigin(key);
+      //_selected.add(key);
+      //_cacheSelectedOrigin(key);
     }
 
     notifyListeners();
@@ -264,7 +264,7 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
       _hovered.addAll(keys);
     } else {
       _selected.clear();
-      _selected.addAll(keys);
+      //_selected.addAll(keys);
       _cacheSelectedOrigins();
     }
     notifyListeners();
@@ -382,7 +382,7 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
 
   void selectAll() {
     _selected.clear();
-    _selected.addAll(nodes.map((e) => e.key).toList());
+    //_selected.addAll(nodes.map((e) => e.key).toList());
     _cacheSelectedOrigins();
     notifyListeners();
   }
