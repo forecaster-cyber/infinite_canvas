@@ -162,7 +162,7 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
   }
 
   bool isSelected(LocalKey key) => false;
-  bool isHovered(LocalKey key) => _hovered.contains(key);
+  bool isHovered(LocalKey key) => false;
 
   bool get hasSelection => _selected.isNotEmpty;
 
@@ -249,7 +249,7 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
 
   void select(Key key, [bool hover = false]) {
     if (hover) {
-      _hovered.add(key);
+      //_hovered.add(key);
     } else {
       //_selected.add(key);
       //_cacheSelectedOrigin(key);
@@ -259,35 +259,15 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
   }
 
   void setSelection(Set<Key> keys, [bool hover = false]) {
-    if (hover) {
-      _hovered.clear();
-      _hovered.addAll(keys);
-    } else {
-      _selected.clear();
-      //_selected.addAll(keys);
-      _cacheSelectedOrigins();
-    }
-    notifyListeners();
+    print("object");
   }
 
   void deselect(Key key, [bool hover = false]) {
-    if (hover) {
-      _hovered.remove(key);
-    } else {
-      _selected.remove(key);
-      _selectedOrigins.remove(key);
-    }
-    notifyListeners();
+    print("object");
   }
 
   void deselectAll([bool hover = false]) {
-    if (hover) {
-      _hovered.clear();
-    } else {
-      _selected.clear();
-      _selectedOrigins.clear();
-    }
-    notifyListeners();
+    print("object");
   }
 
   void add(InfiniteCanvasNode child) {
@@ -299,18 +279,11 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
   }
 
   void edit(InfiniteCanvasNode child) {
-    if (_selected.length == 1) {
-      final idx = nodes.indexWhere((e) => e.key == _selected.first);
-      nodes[idx] = child;
-      notifyListeners();
-    }
+    print("gg");
   }
 
   void remove(Key key) {
-    nodes.removeWhere((e) => e.key == key);
-    _selected.remove(key);
-    _selectedOrigins.remove(key);
-    notifyListeners();
+    print("gg");
   }
 
   void bringToFront() {
