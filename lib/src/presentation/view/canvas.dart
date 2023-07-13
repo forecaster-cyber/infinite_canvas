@@ -205,8 +205,8 @@ class InfiniteCanvasState extends State<InfiniteCanvas> {
             controller.checkSelection(details.localPosition);
             if (controller.selection.isEmpty) {
               if (!controller.spacePressed) {
-                controller.marqueeStart = details.localPosition;
-                controller.marqueeEnd = details.localPosition;
+                //controller.marqueeStart = details.localPosition;
+                //controller.marqueeEnd = details.localPosition;
               }
             } else {
               if (controller.controlPressed && widget.canAddEdges) {
