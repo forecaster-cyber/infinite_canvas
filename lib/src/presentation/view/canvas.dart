@@ -154,9 +154,7 @@ class InfiniteCanvasState extends State<InfiniteCanvas> {
 
   @override
   Widget build(BuildContext context) {
-    while (1 == 1) {
-      controller.panAlways(widget.pan_x, widget.pan_y);
-    }
+    
     return Menus(
       controller: widget.controller,
       visible: widget.menuVisible,
@@ -207,6 +205,7 @@ class InfiniteCanvasState extends State<InfiniteCanvas> {
             }
           }
         },
+        
         child: Listener(
           onPointerDown: (details) {
             controller.mouseDown = true;
