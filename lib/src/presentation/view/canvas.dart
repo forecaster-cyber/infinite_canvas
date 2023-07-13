@@ -19,16 +19,19 @@ import '../widgets/node_renderer.dart';
 /// This can not be shrink wrapped, so it should be used
 /// as a full screen / expanded widget.
 class InfiniteCanvas extends StatefulWidget {
-  const InfiniteCanvas(
-      {super.key,
-      required this.controller,
-      this.gridSize = const Size.square(50),
-      this.menuVisible = true,
-      this.menus = const [],
-      this.backgroundBuilder,
-      this.drawVisibleOnly = false,
-      this.canAddEdges = false,
-      this.edgesUseStraightLines = false});
+  const InfiniteCanvas({
+    super.key,
+    required this.controller,
+    this.pan_x = 0,
+    this.pan_y = 0,
+    this.gridSize = const Size.square(50),
+    this.menuVisible = true,
+    this.menus = const [],
+    this.backgroundBuilder,
+    this.drawVisibleOnly = false,
+    this.canAddEdges = false,
+    this.edgesUseStraightLines = false,
+  });
 
   final InfiniteCanvasController controller;
   final Size gridSize;
@@ -37,6 +40,8 @@ class InfiniteCanvas extends StatefulWidget {
   final bool drawVisibleOnly;
   final bool canAddEdges;
   final bool edgesUseStraightLines;
+  final double pan_x;
+  final double pan_y;
   final Widget Function(BuildContext, Rect)? backgroundBuilder;
 
   @override
@@ -149,6 +154,9 @@ class InfiniteCanvasState extends State<InfiniteCanvas> {
 
   @override
   Widget build(BuildContext context) {
+    while (1 == 1) {
+      controller.panAlways(widget.pan_x, widget.pan_y);
+    }
     return Menus(
       controller: widget.controller,
       visible: widget.menuVisible,

@@ -394,9 +394,11 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
     matrix.translate(delta.dx, delta.dy);
     transform.value = matrix;
     notifyListeners();
+    print("sus!");
   }
 
   void panUp() => pan(const Offset(0, -10));
+  void panAlways(double dx, double dy) => pan(Offset(dx, dy));
   void panDown() => pan(const Offset(0, 10));
   void panLeft() => pan(const Offset(-10, 0));
   void panRight() => pan(const Offset(10, 0));
