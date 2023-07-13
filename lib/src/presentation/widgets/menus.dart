@@ -15,7 +15,7 @@ class Menus extends StatefulWidget {
     this.renameLabel,
     this.visible = true,
   });
-  
+
   final List<MenuEntry> menus;
   final InfiniteCanvasController controller;
   final String Function(String)? renameLabel;
@@ -124,17 +124,6 @@ class _MenusState extends State<Menus> {
           shortcut: const SingleActivator(
             LogicalKeyboardKey.keyA,
             meta: true,
-          ),
-        ),
-        MenuEntry(
-          label: 'Deselect All',
-          onPressed: widget.controller.selection.isEmpty
-              ? null
-              : widget.controller.deselectAll,
-          shortcut: const SingleActivator(
-            LogicalKeyboardKey.keyA,
-            meta: true,
-            shift: true,
           ),
         ),
         MenuEntry(

@@ -188,7 +188,7 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
         setSelection({selection.last}, hover);
       }
     } else {
-      deselectAll(hover);
+      deselectAll(offset, hover);
     }
   }
 
@@ -211,7 +211,7 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
         setSelection(selection, hover);
       }
     } else {
-      deselectAll(hover);
+      //deselectAll(hover);
     }
   }
 
@@ -266,8 +266,10 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
     print("object2");
   }
 
-  void deselectAll([bool hover = false]) {
+  void deselectAll(Offset pos, [bool hover = false]) {
     print("object3");
+    print(pos.dx);
+    print(pos.dy);
   }
 
   void add(InfiniteCanvasNode child) {
