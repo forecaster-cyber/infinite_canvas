@@ -21,8 +21,8 @@ class Marquee extends StatelessWidget {
           ..color = colors.secondary.withOpacity(0.3)
           ..style = PaintingStyle.fill,
         builder: (brush, canvas, rect) {
-          final marqueeRect = Rect.fromPoints(start, end);
-          canvas.drawRect(marqueeRect, brush);
+          //final marqueeRect = Rect.fromPoints(start, end);
+          //canvas.drawRect(marqueeRect, brush);
         },
       ),
     );
