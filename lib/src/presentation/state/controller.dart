@@ -172,13 +172,13 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
     return transform.toScene(global);
   }
 
-  InfiniteCanvasNode lolNode() {
+  InfiniteCanvasNode lolNode(double x, double y) {
     final LocalKey key = UniqueKey();
 
     return InfiniteCanvasNode(
         key: key,
         size: const Size(500, 500),
-        offset: Offset(50, 20),
+        offset: Offset(x, y),
         allowMove: false,
         allowResize: false,
         child: Text("test"));
@@ -200,7 +200,7 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
         setSelection({selection.last}, hover);
       }
     } else {
-      deselectAll(lolNode(), offset, hover);
+      deselectAll(lolNode(localPosition.dx, localPosition.dy), offset, hover);
     }
   }
 
