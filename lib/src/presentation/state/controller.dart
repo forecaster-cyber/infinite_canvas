@@ -259,15 +259,15 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
   }
 
   void setSelection(Set<Key> keys, [bool hover = false]) {
-    print("object");
+    print("object1");
   }
 
   void deselect(Key key, [bool hover = false]) {
-    print("object");
+    print("object2");
   }
 
   void deselectAll([bool hover = false]) {
-    print("object");
+    print("object3");
   }
 
   void add(InfiniteCanvasNode child) {
