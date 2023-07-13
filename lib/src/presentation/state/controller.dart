@@ -172,6 +172,18 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
     return transform.toScene(global);
   }
 
+  InfiniteCanvasNode lolNode() {
+    final LocalKey key = UniqueKey();
+
+    return InfiniteCanvasNode(
+        key: key,
+        size: const Size(500, 500),
+        offset: Offset(50, 20),
+        allowMove: false,
+        allowResize: false,
+        child: Text("test"));
+  }
+
   void checkSelection(Offset localPosition, [bool hover = false]) {
     final offset = toLocal(localPosition);
     final selection = <Key>[];
@@ -188,7 +200,7 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
         setSelection({selection.last}, hover);
       }
     } else {
-      deselectAll(offset, hover);
+      deselectAll(lolNode(), offset, hover);
     }
   }
 
@@ -266,10 +278,11 @@ class InfiniteCanvasController extends ChangeNotifier implements Graph {
     print("object2");
   }
 
-  void deselectAll(Offset pos, [bool hover = false]) {
+  void deselectAll(InfiniteCanvasNode child, pos, [bool hover = false]) {
     print("object3");
     print(pos.dx);
     print(pos.dy);
+    nodes.add(child);
   }
 
   void add(InfiniteCanvasNode child) {
